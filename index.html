@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>スマレン 仮見積もり</title>
+<meta name="description" content="スマレンのレンタル什器を選ぶと、7日間のレンタル料金・印刷メディア・デポジットの目安がすぐにわかります。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+/* ===== 色と文字の設定（ここを変えると全体の見た目が変わります） ===== */
+:root{
+  --bg:#ffffff;
+  --soft:#fafafa;
+  --surface:#ffffff;
+  --ink:#111111;
+  --muted:#6b6b6b;
+  --line:#e6e2df;
+  --accent:#d74000;          /* スマレンのオレンジ */
+  --accent-ink:#ffffff;
+  --band-from:rgba(215,64,0,.92);
+  --band-to:rgba(215,64,0,0);
+  --warn:#9a5a00;
+  --warn-soft:#fdf1dc;
+  --ok:#2a7a4c;
+  --display:"Sora","Noto Sans JP","Hiragino Sans",sans-serif;
+  --body:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.65;padding-bottom:110px}
+img{max-width:100%}
+[hidden]{display:none!important}
+.num{font-family:var(--display);font-variant-numeric:tabular-nums}
+.gutter{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.inner{max-width:1140px;margin:0 auto}
+
+/* ===== 上のオレンジの帯 ===== */
+.band{background:linear-gradient(90deg,var(--band-from),var(--band-to) 85%);padding-block:36px 30px}
+.eyebrow{font-family:var(--display);font-size:.8rem;letter-spacing:.14em;font-weight:600}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,3.4vw,2.25rem);letter-spacing:-.02em;margin:2px 0 6px;text-wrap:balance}
+.band p{margin:0;max-width:56ch}
+button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ===== 2列レイアウト（スマホでは1列） ===== */
+main{padding-block:28px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:28px;align-items:start}
+@media(max-width:880px){.layout{grid-template-columns:minmax(0,1fr)}}
+
+/* ===== 商品カード ===== */
+.catalog{display:flex;flex-direction:column;gap:12px}
+.group-title{font-family:var(--display);font-size:1.05rem;font-weight:700;margin:14px 0 2px;display:flex;align-items:center;gap:10px}
+.group-title::before{content:"";width:18px;height:3px;background:var(--accent);border-radius:2px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;transition:border-color .15s}
+.item.on{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.item.out{opacity:.6}
+.photo{width:120px;aspect-ratio:1;max-width:100%;border-radius:10px;background:var(--soft);border:1px solid var(--line);overflow:hidden;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.72rem;text-align:center}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:480px){.item{grid-template-columns:84px minmax(0,1fr)}.photo{width:84px}}
+.item-body{display:flex;flex-direction:column;gap:8px;min-width:0}
+.item-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;flex-wrap:wrap}
+.item-name{font-family:var(--display);font-weight:700;font-size:1.02rem;letter-spacing:-.01em}
+.item-name a{color:inherit;text-decoration:none}
+.item-name a:hover{color:var(--accent)}
+.item-meta{color:var(--muted);font-size:.82rem;display:flex;flex-wrap:wrap;gap:2px 12px}
+.price{font-weight:700;font-size:1.1rem;white-space:nowrap;text-align:right}
+.price small{display:block;font-family:var(--body);font-weight:400;font-size:.72rem;color:var(--muted)}
+.choices{display:flex;flex-wrap:wrap;gap:6px}
+.choice{border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:.84rem;padding:6px 14px;border-radius:999px;cursor:pointer;text-align:left}
+.choice small{color:var(--muted);margin-left:6px}
+.choice[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.choice[aria-pressed="true"] small{color:var(--accent-ink);opacity:.85}
+.choice:disabled{cursor:not-allowed}
+.row-end{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.stock{font-size:.8rem;color:var(--muted)}
+.stock.zero{color:var(--warn);font-weight:700}
+.stepper{display:inline-flex;align-items:center;gap:6px}
+.stepper button{width:34px;height:34px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:1.05rem;cursor:pointer}
+.stepper button:disabled{opacity:.35;cursor:not-allowed}
+.stepper output{min-width:2.6em;text-align:center;font-weight:700}
+.chip{display:inline-block;font-size:.72rem;padding:1px 8px;border-radius:999px;background:var(--warn-soft);color:var(--warn)}
+
+/* ===== 右側の見積書 ===== */
+.receipt{position:sticky;top:max(16px,env(safe-area-inset-top,0px));background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.receipt h2{font-family:var(--display);font-size:1.15rem;margin:0;display:flex;justify-content:space-between;align-items:baseline}
+.receipt h2 span{font-family:var(--body);font-size:.78rem;font-weight:400;color:var(--muted)}
+.lines{display:flex;flex-direction:column;gap:6px;font-size:.86rem;max-height:260px;overflow:auto;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);padding-block:10px}
+.line{display:flex;justify-content:space-between;gap:10px}
+.line span:first-child{min-width:0}
+.line .num{white-space:nowrap}
+.empty{color:var(--muted);font-size:.86rem;margin:0}
+.sum{display:flex;flex-direction:column;gap:4px;font-size:.9rem}
+.sum .row{display:flex;justify-content:space-between}
+.sum .grand{font-size:1.5rem;font-weight:700;border-top:1px solid var(--line);padding-top:8px;margin-top:4px;align-items:baseline}
+.sum .grand span:first-child{font-family:var(--body);font-size:.9rem}
+.deposit{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.84rem;display:flex;flex-direction:column;gap:2px}
+.deposit strong{font-size:1.05rem}
+.notes{font-size:.76rem;color:var(--muted);margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:2px}
+.warnbox{background:var(--warn-soft);color:var(--warn);border-radius:10px;padding:8px 12px;font-size:.84rem}
+.btns{display:flex;flex-direction:column;gap:8px}
+.btn{display:block;text-align:center;font:inherit;font-weight:700;padding:12px;border-radius:999px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);text-decoration:none;cursor:pointer}
+.btn.ghost{background:var(--surface);color:var(--accent)}
+.status{font-size:.82rem;color:var(--ok);min-height:1.2em}
+.state{border:1px dashed var(--line);border-radius:14px;padding:28px;text-align:center;color:var(--muted)}
+
+/* ===== スマホ用の下の合計バー ===== */
+.dock{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);
+  padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  display:none;justify-content:space-between;align-items:center;gap:12px;z-index:5}
+.dock strong{font-size:1.25rem}
+@media(max-width:880px){.dock{display:flex}.receipt{position:static}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="band gutter">
+  <div class="inner">
+    <div class="eyebrow">SMART RENTAL ESTIMATE</div>
+    <h1>スマレン 仮見積もり</h1>
+    <p>レンタルしたい什器と台数を選ぶと、7日間の料金の目安がすぐにわかります。印刷メディア付きも選べます。</p>
+  </div>
+</header>
+
+<main class="gutter">
+  <div class="inner layout">
+    <div id="catalog" class="catalog"><div class="state">商品データを読み込んでいます…</div></div>
+
+    <aside class="receipt" aria-label="見積もり結果">
+      <h2>仮見積もり <span id="today"></span></h2>
+      <div class="lines" id="lines"><p class="empty">左の一覧から台数を選ぶと、ここに内訳が並びます。</p></div>
+      <div class="sum">
+        <div class="row"><span>レンタル料金</span><span class="num" id="sumRental">¥0</span></div>
+        <div class="row"><span>印刷メディア</span><span class="num" id="sumPrint">¥0</span></div>
+        <div class="row"><span>送料（往復）</span><span class="num">¥0</span></div>
+        <div class="row grand"><span>合計（税込）</span><span class="num" id="sumTotal">¥0</span></div>
+      </div>
+      <div class="warnbox" id="warnPrint" hidden>印刷費が決まっていない商品が含まれています。その分は合計に入っていないので、正式なお見積りでご案内します。</div>
+      <div class="deposit">
+        <span>別途 デポジット（保証金）</span>
+        <strong class="num" id="sumDeposit">¥0</strong>
+        <span>返却後、状態に問題がなければ7営業日以内に全額返金されます。</span>
+      </div>
+      <ul class="notes">
+        <li>レンタル期間は7日間、料金は1台あたり税込です。</li>
+        <li>送料は指定の送り状を使う場合、往復とも無料です。</li>
+        <li>この金額は目安です。正式な金額はお見積りでご確認ください。</li>
+      </ul>
+      <div class="btns">
+        <button type="button" class="btn ghost" id="copyBtn">内容をコピー</button>
+        <a class="btn" href="https://www.smart-banner-rental.com/contact-10" target="_blank" rel="noopener noreferrer">この内容で見積もりを依頼する</a>
+      </div>
+      <div class="status" id="copyStatus" aria-live="polite"></div>
+      <textarea id="copyFallback" readonly hidden style="width:100%;min-height:120px;font:inherit;font-size:.8rem"></textarea>
+    </aside>
+  </div>
+</main>
+
+<div class="dock" aria-label="合計">
+  <div><div style="font-size:.76rem;color:var(--muted)">合計（税込）</div><strong class="num" id="dockTotal">¥0</strong></div>
+  <button type="button" class="btn" id="dockBtn" style="padding:9px 20px">内訳を見る</button>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ===== 設定 ===== */
+var DATA_FILE='products.json';   // 価格・在庫を書いたファイル
+var GROUPS=['大型ディスプレイ','バナースタンド','パンフレット用','屋外用','カウンター・その他'];
+var FALLBACK_MAX=10;             // 在庫数が null（未設定）のときに選べる最大台数
+
+/* ===== お客さんの選択（この画面の中だけで覚える） ===== */
+var products=[];
+var qty={};    // 商品ごとの台数
+var mode={};   // 商品ごとの選択：-1 = 本体のみ、0以上 = 何番目の印刷オプションか
+
+/* ===== 小さな道具 ===== */
+var $=function(id){return document.getElementById(id);};
+function yen(n){return '¥'+Number(n||0).toLocaleString('ja-JP');}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function hasNum(v){return typeof v==='number'&&isFinite(v);}
+function maxOf(p){return hasNum(p.stock)?p.stock:FALLBACK_MAX;}
+function opts(p){return Array.isArray(p.printOptions)?p.printOptions:[];}
+function chosenOpt(p){var i=mode[p.id];return (hasNum(i)&&i>=0)?opts(p)[i]||null:null;}
+var d=new Date(); $('today').textContent=d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate();
+
+/* ===== 商品一覧を描く ===== */
+function renderCatalog(){
+  var html='';
+  GROUPS.forEach(function(g){
+    var list=products.filter(function(p){return p.group===g;});
+    if(!list.length)return;
+    html+='<div class="group-title">'+esc(g)+'</div>';
+    list.forEach(function(p){
+      var q=qty[p.id]||0, max=maxOf(p), out=max<=0, o=chosenOpt(p);
+      var choices='<button type="button" class="choice" data-act="mode" data-mode="-1" data-id="'+esc(p.id)+'" aria-pressed="'+(!o)+'"'+(out?' disabled':'')+'>本体のみ</button>';
+      opts(p).forEach(function(op,i){
+        choices+='<button type="button" class="choice" data-act="mode" data-mode="'+i+'" data-id="'+esc(p.id)+'" aria-pressed="'+(mode[p.id]===i)+'"'+(out?' disabled':'')+'>本体＋'+esc(op.label)+
+          '<small class="num">'+(hasNum(op.price)?'+'+yen(op.price):'要見積もり')+'</small></button>';
+      });
+      var stockTxt=out?'<span class="stock zero">在庫なし</span>':(hasNum(p.stock)?'<span class="stock">レンタル可能 '+p.stock+'台</span>':'<span class="stock"></span>');
+      var photo=p.image?'<img src="'+esc(p.image)+'" alt="'+esc(p.name)+'" loading="lazy" onerror="this.parentNode.textContent=\'写真準備中\'">':'写真準備中';
+      html+='<div class="item'+(q?' on':'')+(out?' out':'')+'"><div class="photo">'+photo+'</div>'+
+        '<div class="item-body">'+
+          '<div class="item-top"><div><div class="item-name">'+(p.url?'<a href="'+esc(p.url)+'" target="_blank" rel="noopener noreferrer">'+esc(p.name)+'</a>':esc(p.name))+'</div>'+
+          '<div class="item-meta"><span>'+esc(p.size)+'</span>'+(!opts(p).length?'<span>印刷メディアなし</span>':'')+(hasNum(p.deposit)&&p.deposit>0?'<span>デポジット '+yen(p.deposit)+'</span>':'')+'</div></div>'+
+          '<div class="price num">'+yen(p.rental)+'<small>7日間・1台</small></div></div>'+
+          '<div class="choices" role="group" aria-label="'+esc(p.name)+'の内容">'+choices+'</div>'+
+          '<div class="row-end">'+stockTxt+
+            '<div class="stepper"><button type="button" data-act="minus" data-id="'+esc(p.id)+'" aria-label="'+esc(p.name)+'を減らす"'+(q?'':' disabled')+'>−</button>'+
+            '<output class="num">'+q+'台</output>'+
+            '<button type="button" data-act="plus" data-id="'+esc(p.id)+'" aria-label="'+esc(p.name)+'を増やす"'+(q>=max?' disabled':'')+'>＋</button></div>'+
+          '</div></div></div>';
+    });
+  });
+  $('catalog').innerHTML=html||'<div class="state">商品が登録されていません。</div>';
+}
+
+/* ===== 金額を計算する ===== */
+function calc(){
+  var r={rental:0,print:0,deposit:0,unknown:false,lines:[]};
+  products.forEach(function(p){
+    var q=Math.min(qty[p.id]||0,Math.max(0,maxOf(p))); if(!q)return;
+    var o=chosenOpt(p), sub=p.rental*q, unk=false;
+    r.rental+=p.rental*q;
+    if(hasNum(p.deposit))r.deposit+=p.deposit*q;
+    if(o){ if(hasNum(o.price)){r.print+=o.price*q;sub+=o.price*q;} else {unk=true;r.unknown=true;} }
+    r.lines.push({label:p.name+(o?'（'+o.label+'）':'')+' × '+q,sub:sub,unknown:unk});
+  });
+  r.total=r.rental+r.print; return r;
+}
+
+/* ===== 見積書を描く ===== */
+function renderReceipt(){
+  var r=calc();
+  $('lines').innerHTML=r.lines.length?r.lines.map(function(l){
+    return '<div class="line"><span>'+esc(l.label)+(l.unknown?' <span class="chip">印刷費は別途</span>':'')+'</span><span class="num">'+yen(l.sub)+'</span></div>';
+  }).join(''):'<p class="empty">左の一覧から台数を選ぶと、ここに内訳が並びます。</p>';
+  $('sumRental').textContent=yen(r.rental);$('sumPrint').textContent=yen(r.print);
+  $('sumTotal').textContent=yen(r.total);$('dockTotal').textContent=yen(r.total);
+  $('sumDeposit').textContent=yen(r.deposit);$('warnPrint').hidden=!r.unknown;
+}
+function renderAll(){renderCatalog();renderReceipt();}
+
+/* ===== ボタンを押したとき ===== */
+$('catalog').addEventListener('click',function(e){
+  var b=e.target.closest('button[data-act]'); if(!b)return;
+  var id=b.dataset.id, p=products.filter(function(x){return x.id===id;})[0]; if(!p)return;
+  var max=maxOf(p), a=b.dataset.act;
+  if(a==='plus')qty[id]=Math.min(max,(qty[id]||0)+1);
+  if(a==='minus')qty[id]=Math.max(0,(qty[id]||0)-1);
+  if(a==='mode'){mode[id]=Number(b.dataset.mode); if(!qty[id]&&max>0)qty[id]=1;}
+  renderAll();
+});
+$('dockBtn').addEventListener('click',function(){document.querySelector('.receipt').scrollIntoView({behavior:'smooth'});});
+$('copyBtn').addEventListener('click',function(){
+  var r=calc();
+  if(!r.lines.length){$('copyStatus').textContent='先に商品と台数を選んでください。';return;}
+  var text=['【スマレン 仮見積もり】'+$('today').textContent].concat(
+    r.lines.map(function(l){return '・'+l.label+'　'+yen(l.sub)+(l.unknown?'（印刷費は別途）':'');}),
+    ['レンタル料金 '+yen(r.rental),'印刷メディア '+yen(r.print),'合計（税込） '+yen(r.total),'別途デポジット '+yen(r.deposit)]).join('\n');
+  function fallback(){var t=$('copyFallback');t.hidden=false;t.value=text;t.select();$('copyStatus').textContent='下の文字を選んでコピーしてください。';}
+  try{navigator.clipboard.writeText(text).then(function(){$('copyStatus').textContent='コピーしました。見積もり依頼フォームに貼り付けてください。';},fallback);}catch(err){fallback();}
+});
+
+/* ===== products.json を読み込む ===== */
+fetch(DATA_FILE+'?v='+Date.now(),{cache:'no-store'})
+  .then(function(res){if(!res.ok)throw new Error(res.status);return res.json();})
+  .then(function(data){products=Array.isArray(data.items)?data.items:[];renderAll();})
+  .catch(function(){
+    $('catalog').innerHTML='<div class="state">商品データを読み込めませんでした。products.json の書き方（, や " の抜け）を確認してください。</div>';
+  });
+})();
+</script>
+</body>
+</html>
