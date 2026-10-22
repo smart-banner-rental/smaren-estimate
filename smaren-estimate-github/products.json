@@ -1,0 +1,194 @@
+{
+  "_説明": "このファイルの数字を書き換えると、計算機の金額・在庫が変わります。数字以外（\" や , ）は消さないように注意してください。まだ決まっていない金額は null と書きます。",
+  "items": [
+    {
+      "id": "flextile80",
+      "group": "大型ディスプレイ",
+      "name": "Flextile 80",
+      "size": "160×160cm",
+      "rental": 35000,
+      "stock": 1,
+      "deposit": 10000,
+      "image": "images/flextile80.jpg",
+      "url": "https://www.smart-banner-rental.com/rental/flextile%E3%80%80%EF%BD%9780%EF%BC%88160%C3%97160%EF%BC%89",
+      "printOptions": [
+        { "label": "印刷（W80角×4枚）", "price": 70000 },
+        { "label": "印刷（160×160 1枚もの）", "price": 70000 }
+      ]
+    },
+    {
+      "id": "flextile100",
+      "group": "大型ディスプレイ",
+      "name": "Flextile 100",
+      "size": "200×200cm",
+      "rental": 40000,
+      "stock": 1,
+      "deposit": 10000,
+      "image": "images/flextile100.jpg",
+      "url": "https://www.smart-banner-rental.com/rental/flextile%E3%80%80%EF%BD%97100%EF%BC%88200%C3%97200%EF%BC%89",
+      "printOptions": [
+        { "label": "印刷（W100角×4枚）", "price": 70000 },
+        { "label": "印刷（200×200 1枚もの）", "price": 70000 }
+      ]
+    },
+    {
+      "id": "flextile120",
+      "group": "大型ディスプレイ",
+      "name": "Flextile 120",
+      "size": "240×240cm",
+      "rental": 45000,
+      "stock": 1,
+      "deposit": 10000,
+      "image": "images/flextile120.jpg",
+      "url": "https://www.smart-banner-rental.com/rental/flextile%E3%80%80%EF%BD%97120%EF%BC%88240%C3%97240%EF%BC%89",
+      "printOptions": [
+        { "label": "印刷（W120角×4枚）", "price": 70000 },
+        { "label": "印刷（240×240 1枚もの）", "price": 70000 }
+      ]
+    },
+    {
+      "id": "pixlipgo85200",
+      "group": "大型ディスプレイ",
+      "name": "PixlipGo 85200",
+      "size": "W80×H200cm・LEDライトボックス",
+      "rental": 35000,
+      "stock": 1,
+      "deposit": 10000,
+      "image": "images/pixlipgo85200.jpg",
+      "url": "https://www.smart-banner-rental.com/rental/pixlipgo85200",
+      "printOptions": [{ "label": "印刷メディア", "price": 70000 }]
+    },
+    {
+      "id": "pixlipgo100200",
+      "group": "大型ディスプレイ",
+      "name": "PixlipGo 100200",
+      "size": "W100×H200cm・LEDライトボックス",
+      "rental": 40000,
+      "stock": 1,
+      "deposit": 10000,
+      "image": "images/pixlipgo100200.jpg",
+      "url": "https://www.smart-banner-rental.com/rental/pixlipgo100200",
+      "printOptions": [{ "label": "印刷メディア", "price": 70000 }]
+    },
+    {
+      "id": "pixlipgo100250",
+      "group": "大型ディスプレイ",
+      "name": "PixlipGo 100250",
+      "size": "W100×H250cm・LEDライトボックス",
+      "rental": 45000,
+      "stock": 1,
+      "deposit": 10000,
+      "image": "images/pixlipgo100250.jpg",
+      "url": "https://www.smart-banner-rental.com/rental/pixlipgo100250",
+      "printOptions": [{ "label": "印刷メディア", "price": 70000 }]
+    },
+    {
+      "id": "quickscreen1",
+      "group": "バナースタンド",
+      "name": "Quick Screen1",
+      "size": "W100×H200cm・ロールアップ式",
+      "rental": 4000,
+      "stock": 1,
+      "deposit": 10000,
+      "image": "images/quickscreen1.jpg",
+      "url": "https://www.smart-banner-rental.com/rental/quick-screen1-",
+      "printOptions": [{ "label": "印刷メディア", "price": 70000 }]
+    },
+    {
+      "id": "brochurepocket",
+      "group": "パンフレット用",
+      "name": "Brochure Pocket",
+      "size": "マグネット式・2個セット",
+      "rental": 4000,
+      "stock": 1,
+      "deposit": 10000,
+      "image": "images/brochurepocket.jpg",
+      "url": "https://www.smart-banner-rental.com/rental/expandbrochure-pocket",
+      "printOptions": []
+    },
+    {
+      "id": "brochurestand",
+      "group": "パンフレット用",
+      "name": "Brochure Stand",
+      "size": "折り畳み式・4段",
+      "rental": 4000,
+      "stock": 1,
+      "deposit": 10000,
+      "image": "images/brochurestand.jpg",
+      "url": "https://www.smart-banner-rental.com/rental/brochure-stand-(%E3%83%96%E3%83%AD%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%BC%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89)",
+      "printOptions": []
+    },
+    {
+      "id": "brochureholder",
+      "group": "パンフレット用",
+      "name": "Brochure Holder",
+      "size": "W50×H136cm・丸めて収納",
+      "rental": 4000,
+      "stock": 1,
+      "deposit": 10000,
+      "image": "images/brochureholder.jpg",
+      "url": "https://www.smart-banner-rental.com/rental/brochure-holder(%E3%83%96%E3%83%AD%E3%83%BC%E3%82%B7%E3%83%A3%E3%83%BC%E3%83%9B%E3%83%AB%E3%83%80%E3%83%BC)",
+      "printOptions": []
+    },
+    {
+      "id": "flagstand1x",
+      "group": "屋外用",
+      "name": "FlagStand1（Xベース）",
+      "size": "H4m・のぼり型",
+      "rental": 5000,
+      "stock": 1,
+      "deposit": 10000,
+      "image": "images/flagstand1x.jpg",
+      "url": "https://www.smart-banner-rental.com/rental/flagstand1-with-x%E3%83%99%E3%83%BC%E3%82%B9",
+      "printOptions": [{ "label": "印刷メディア", "price": 70000 }]
+    },
+    {
+      "id": "flagstand1spike",
+      "group": "屋外用",
+      "name": "FlagStand1（杭）",
+      "size": "H4m・のぼり型",
+      "rental": 5000,
+      "stock": 1,
+      "deposit": 10000,
+      "image": "images/flagstand1spike.jpg",
+      "url": "https://www.smart-banner-rental.com/rental/flagstand1-with-%E6%9D%AD",
+      "printOptions": [{ "label": "印刷メディア", "price": 70000 }]
+    },
+    {
+      "id": "flagstandxl",
+      "group": "屋外用",
+      "name": "FlagStandXL（ウォーターバッグ）",
+      "size": "H5.5m・大型のぼり",
+      "rental": 6000,
+      "stock": 1,
+      "deposit": 10000,
+      "image": "images/flagstandxl.jpg",
+      "url": "https://www.smart-banner-rental.com/rental/flagstandxl-with-%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%BF%E3%83%BC%E3%83%90%E3%83%83%E3%82%B0",
+      "printOptions": [{ "label": "印刷メディア", "price": 70000 }]
+    },
+    {
+      "id": "pixlipgocounter",
+      "group": "カウンター・その他",
+      "name": "PixlipGo Counter",
+      "size": "W100×H100cm・光るカウンター",
+      "rental": 30000,
+      "stock": 1,
+      "deposit": 10000,
+      "image": "images/pixlipgocounter.jpg",
+      "url": "https://www.smart-banner-rental.com/rental/pixlipgo-counter",
+      "printOptions": [{ "label": "印刷メディア", "price": 70000 }]
+    },
+    {
+      "id": "instore",
+      "group": "カウンター・その他",
+      "name": "InStore",
+      "size": "メディア交換式",
+      "rental": 8000,
+      "stock": 1,
+      "deposit": 10000,
+      "image": "images/instore.jpg",
+      "url": "https://www.smart-banner-rental.com/rental/instore",
+      "printOptions": [{ "label": "印刷メディア", "price": 70000 }]
+    }
+  ]
+}
