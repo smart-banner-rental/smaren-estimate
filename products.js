@@ -1,6 +1,6 @@
 // 自動生成ファイル(make_products.py)。手で直さない。金額は レンタル在庫管理表「価格表」シートで直す。
 window.RENTAL_DATA = {
- "generated": "2026-11-04 13:36",
+ "generated": "2026-11-04 13:55",
  "groups": [
   "ライトボックス・大型壁面",
   "カウンター・受付",
@@ -346,7 +346,7 @@ window.RENTAL_DATA = {
    "name": "Brochure Pocket 1Pocket 2マグネット",
    "group": "スタンド・パンフレット",
    "kind": "noprint",
-   "stock": 1,
+   "stock": 2,
    "fixtureSingle": 3000,
    "fixtureBundle": 3000,
    "print": 0,
