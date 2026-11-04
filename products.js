@@ -1,6 +1,6 @@
 // 自動生成ファイル(make_products.py)。手で直さない。金額は レンタル在庫管理表「価格表」シートで直す。
 window.RENTAL_DATA = {
- "generated": "2026-11-04 13:18",
+ "generated": "2026-11-04 13:36",
  "groups": [
   "ライトボックス・大型壁面",
   "カウンター・受付",
@@ -294,6 +294,21 @@ window.RENTAL_DATA = {
    "printOptions": [],
    "note": "",
    "image": "images/finelinea4.jpg",
+   "url": ""
+  },
+  {
+   "id": "FLF40160",
+   "name": "FineLine W40×H160 フロア",
+   "group": "スタンド・パンフレット",
+   "kind": "single",
+   "stock": 2,
+   "fixtureSingle": 18000,
+   "fixtureBundle": 12000,
+   "print": 20000,
+   "printTentative": false,
+   "printOptions": [],
+   "note": "床置きのスリムな両面サインスタンド",
+   "image": "images/finelinefloor40160.jpg",
    "url": ""
   },
   {
