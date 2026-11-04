@@ -350,7 +350,6 @@ function renderCatalog(){
         var parts=[];
         if(mode==='first'&&hasPrint(p)&&!pr.unknown)parts.push('什器 '+yen(pr.fixture)+'+印刷 '+yen(pr.print));
         if(pr.bundled)parts.push('大型と一緒の特別料金');
-        else if(isNum(p.fixtureBundle)&&p.fixtureBundle<p.fixtureSingle)parts.push('大型と一緒なら什器 '+yen(p.fixtureBundle));
         hint='<span class="hint">'+esc(parts.join(' / '))+'</span>';
       }
       var locked=!pr.ok;
