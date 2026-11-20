@@ -1,6 +1,6 @@
 // 自動生成ファイル(make_products.py)。手で直さない。金額は レンタル在庫管理表「価格表」シートで直す。
 window.RENTAL_DATA = {
- "generated": "2026-11-04 13:55",
+ "generated": "2026-11-06 17:19",
  "groups": [
   "ライトボックス・大型壁面",
   "カウンター・受付",
@@ -72,11 +72,11 @@ window.RENTAL_DATA = {
    "printOptions": [
     {
      "label": "1枚もの",
-     "price": 65000
+     "price": 50000
     },
     {
      "label": "80角×4枚",
-     "price": 60000
+     "price": 76000
     }
    ],
    "note": "",
@@ -96,11 +96,11 @@ window.RENTAL_DATA = {
    "printOptions": [
     {
      "label": "1枚もの",
-     "price": 72000
+     "price": 70000
     },
     {
      "label": "100角×4枚",
-     "price": 68000
+     "price": 76000
     }
    ],
    "note": "",
@@ -120,11 +120,11 @@ window.RENTAL_DATA = {
    "printOptions": [
     {
      "label": "1枚もの",
-     "price": 80000
+     "price": 91000
     },
     {
      "label": "120角×4枚",
-     "price": 80000
+     "price": 108000
     }
    ],
    "note": "",
